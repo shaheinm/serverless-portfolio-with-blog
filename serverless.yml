@@ -1,0 +1,33 @@
+service: portfolio-api
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  getPosts:
+    handler: handler.getPosts
+    events:
+      - http:
+          path: api/posts
+          method: get
+          integration: lambda
+          cors: true
+  auth:
+    handler: auth.authorize
+  postPosts:
+    handler: handler.postPosts
+    events:
+      - http:
+          path: api/posts
+          method: post
+          authorizer: auth
+          cors:
+            origins:
+              - '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token

@@ -1,0 +1,12 @@
+{
+  "name": "serverless-portfolio-api",
+  "version": "1.0.0",
+  "description": "Serverless API for my portfolio web app",
+  "author": "Shahein Moussavi",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^8.1.0",
+    "jwk-to-pem": "^1.2.6",
+    "request": "^2.83.0"
+  }
+}
