@@ -4,11 +4,7 @@ const jwk = require('jsonwebtoken');
 const jwkToPem = require('jwk-to-pem');
 const request = require('request');
 
-// For Auth0:       https://<project>.auth0.com/
-// refer to:        http://bit.ly/2hoeRXk
-// For AWS Cognito: https://cognito-idp.<region>.amazonaws.com/<user pool id>/
-// refer to:        http://amzn.to/2fo77UI
-const iss = 'https://cognito-idp.us-east-1.amazonaws.com/us-east-1_YJzl2aahp/';
+const iss = process.env.COGNITO_ISS;
 
 // Generate policy to allow this user on this API:
 const generatePolicy = (principalId, effect, resource) => {
